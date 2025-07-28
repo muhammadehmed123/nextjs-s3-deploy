@@ -51,8 +51,8 @@ const Footer = () => {
                         {/* Second column in the right side */}
                         <div className="w-[100%] md:w-1/2 ">
                             <h3 className="text-lg font-semibold mb-4 text-black">Contact Us</h3>
-                            <p className='w-[100%] flex gap-3 items-center mt-2 text-gray_footer_text text-sm'><Image src='/phone.svg' width={20} height={20} />+92304-3870-323</p>
-                            <p className='w-[100%] flex gap-3 items-center mt-2 text-gray_footer_text text-sm   '><Image src='/globe.svg' width={20} height={20} />info@co-ventech.com</p>
+                            <p className='w-[100%] flex gap-3 items-center mt-2 text-gray_footer_text text-sm'><Image src='/phone.svg' width={20} height={20} unoptimized/>+92304-3870-323</p>
+                            <p className='w-[100%] flex gap-3 items-center mt-2 text-gray_footer_text text-sm   '><Image src='/globe.svg' width={20} height={20} unoptimized/>info@co-ventech.com</p>
                         </div>
                     </div>
                     {/* </div> */}

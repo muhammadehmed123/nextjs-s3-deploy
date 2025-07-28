@@ -24,7 +24,7 @@ const SkillsList = () => {
                     <div className="logos-slide flex gap-x-16 animate-scroll">
                         {repeatedSkills.map((skill, index) => (
                             <div key={index} className='flex flex-col justify-between items-center gap-3'>
-                                <Image src={skill.src} alt={skill.alt} width={imageSize} height={imageSize} className="img" />
+                                <Image src={skill.src} alt={skill.alt} width={imageSize} height={imageSize} className="img" unoptimized/>
                                 <p className='font-semibold'>{skill.label}</p>
                             </div>
                         ))}

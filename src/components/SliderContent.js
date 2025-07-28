@@ -19,7 +19,7 @@ const SliderContent = (props) => {
             {/* Right Section (visible on all screens) */}
             <div className="relative z-10 w-full md:w-1/2 text-black hidden md:block">
                 <div className="relative z-20 flex flex-col items-start">
-                    <Image src={props.src} className="w-4/5 ml-20" width={20} height={20} priority />
+                    <Image src={props.src} className="w-4/5 ml-20" width={20} height={20} priority unoptimized/>
                 </div>
             </div>
         </div>

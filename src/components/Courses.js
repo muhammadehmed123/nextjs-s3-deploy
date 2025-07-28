@@ -64,14 +64,14 @@ const Courses = () => {
         <>
             <div className="w-[90%] flex justify-between h-auto my-8 ">
                 <h2 className="text-2xl font-semibold">Top Courses</h2>
-                <span onClick={() => router.push('/courses')} className="text-blue font-semibold flex gap-3 items-center cursor-pointer">View All<Image src='/rightArrow.svg' width={15} height={15} /></span>
+                <span onClick={() => router.push('/courses')} className="text-blue font-semibold flex gap-3 items-center cursor-pointer">View All<Image src='/rightArrow.svg' width={15} height={15} unoptimized/></span>
             </div>
 
             <div className="w-[100%] flex flex-col justify-center items-center">
                 <div className="h-auto w-[90%] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 ">    
                     {courses.map(course => (
                         <div key={course.id} className="img-container border border-cards_gray sm:w-[14rem] lg:w-[17rem] max-lg:w-[15rem] m-10  h-[20rem] w-[20rem] lg:justify-between bg-white rounded-2xl p-4 flex flex-col items-start">
-                            <Image className="w-[100%]" src={course.image} alt={course.title} width={280} height={260} />
+                            <Image className="w-[100%]" src={course.image} alt={course.title} width={280} height={260} unoptimized/>
                             <div className=" w-[100%] flex justify-start items-center gap-3">
                                 <span className="text-sm">{course.rating}</span>
                                 <StarRating rating={Math.round(course.rating)} />

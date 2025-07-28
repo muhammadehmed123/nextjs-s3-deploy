@@ -22,7 +22,7 @@ const PromotionalList = () => {
                 <div className="logos h-[100%] mx-auto w-[100%]">
                     <div className="logos-slide h-[100%] flex items-center gap-x-16 animate-scroll">
                         {repeatedSkills.map((skill, index) => (
-                            <Image src={skill.src} alt={skill.alt} width={imageSize} height={imageSize} className="img" />
+                            <Image src={skill.src} alt={skill.alt} width={imageSize} height={imageSize} className="img" unoptimized/>
                         ))}
                     </div>
                 </div>

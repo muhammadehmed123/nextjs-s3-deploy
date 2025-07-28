@@ -60,7 +60,7 @@ const Login = () => {
         </div>
           <button className="bg-white mt-4  border mb-4 w-full border-lightgray text-black p-2 rounded-lg flex items-center justify-center">
             <span className="mr-2">
-                <Image src="/googlelogo.png" width={25} height={25}/>
+                <Image src="/googlelogo.png" width={25} height={25} unoptimized/>
                 {/* <img src={googleicon} width={24} height={24} alt="Google Icon" /> */}
             </span>
             <span className="font-semibold text-sm">Continue with Google</span>
@@ -68,7 +68,7 @@ const Login = () => {
 
            <button className="bg-white border mb-4 w-full border-lightgray text-black p-2 rounded-lg flex items-center justify-center">
             <span className="mr-2">
-                <Image src="/applelogo.png" width={25} height={25}/>
+                <Image src="/applelogo.png" width={25} height={25} unoptimized/>
                 {/* <img src={facebookicon} width={24} height={24} alt="Facebook Icon" /> */}
             </span>
             <span className="font-semibold text-sm">Continue with Apple</span>

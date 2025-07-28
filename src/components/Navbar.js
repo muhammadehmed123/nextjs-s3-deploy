@@ -27,7 +27,7 @@ const Navbar = () => {
         <>
             <div className="h-[10vh] w-[100%] bg-white flex flex-row justify-center items-center">
                 <div className="w-[90%] flex justify-between items-center">
-                    <Image src="/logo.svg" width={160} height={160} alt="Logo" />
+                    <Image src="/logo.svg" width={160} height={160} alt="Logo" unoptimized/>
 
                     <div className="lg:hidden">
                         <button
@@ -59,7 +59,7 @@ const Navbar = () => {
                     </div>
 
                     <div className="flex border-[1px] rounded-lg hidden lg:flex justify-between items-center w-full border-border_gray px-4 gap-2 lg:w-[25%]">
-                        <Image src="/searchIcon.svg" width={20} height={20} alt="Search Icon" />
+                        <Image src="/searchIcon.svg" width={20} height={20} alt="Search Icon" unoptimized/>
                         <input type="text" placeholder="Search" className="w-[100%] py-2 outline-none" />
                     </div>
 
@@ -72,7 +72,7 @@ const Navbar = () => {
                     <div className="absolute w-[95%] flex justify-center mb-10">
                         <div className="w-[100%] flex justify-end items-center relative z-10">
                             <button onClick={togglerMethod}>
-                                <Image src='/Cross.png' width={40} height={40} alt="Close Menu" />
+                                <Image src='/Cross.png' width={40} height={40} alt="Close Menu" unoptimized/>
                             </button>
                         </div>
                     </div>
@@ -92,7 +92,7 @@ const Navbar = () => {
             {/* Mobile Search Bar */}
             <div className="lg:hidden flex justify-center items-center w-full bg-white py-2">
                 <div className="flex border-[1px] rounded-md border-border_gray px-4 gap-2 w-[90%]">
-                    <Image src="/searchIcon.svg" width={20} height={20} alt="Search Icon" />
+                    <Image src="/searchIcon.svg" width={20} height={20} alt="Search Icon" unoptimized/>
                     <input type="text" placeholder="Search" className="w-[100%] py-2 outline-none" />
                 </div>
             </div>

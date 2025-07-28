@@ -120,7 +120,7 @@ const Signup = () =>{
           </div>
           <button className="bg-white mt-4 bg-blue-700 border mb-4 w-full border-black text-black p-2 rounded-lg flex items-center justify-center">
             <span className="mr-2">
-                <Image src="/googlelogo.png" width={25} height={25} alt=""/>
+                <Image src="/googlelogo.png" width={25} height={25} alt="" unoptimized />
                 {/* <img src={googleicon} width={24} height={24} alt="Google Icon" /> */}
             </span>
             <span className="font-semibold text-sm">Continue with Google</span>
@@ -128,7 +128,7 @@ const Signup = () =>{
 
            <button className="bg-white bg-blue-700 border mb-4 w-full border-black text-black p-2 rounded-lg flex items-center justify-center">
             <span className="mr-2">
-                <Image src="/applelogo.png" width={25} height={25}/>
+                <Image src="/applelogo.png" width={25} height={25} unoptimized/>
             </span>
             <span className="font-semibold text-sm">Continue with Apple</span>
            </button>
