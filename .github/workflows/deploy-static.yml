@@ -29,7 +29,7 @@ jobs:
         run: npm run export
 
       - name: 📦 Upload exported `out/` folder as artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4.3.1
         with:
           name: nextjs-static-site
           path: out
