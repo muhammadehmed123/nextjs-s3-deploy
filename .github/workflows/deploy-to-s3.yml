@@ -25,13 +25,12 @@ jobs:
       - name: 🚀 Export static site
         run: npm run export
 
-      - name: ☁️ Deploy to S3
-        uses: jakejarvis/s3-sync-action@v0.5.1
+      - name: ☁️ Sync to S3
+        uses: aws-actions/s3-sync@v1
         with:
-          args: --acl public-read --delete
+          bucket: ${{ secrets.S3_BUCKET_NAME }}
+          region: ${{ secrets.AWS_REGION }}
+          source-dir: out
         env:
-          AWS_S3_BUCKET: ${{ secrets.S3_BUCKET_NAME }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: ${{ secrets.AWS_REGION }}
-          SOURCE_DIR: out
