@@ -7,12 +7,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: read
+
     steps:
       - name: ⬇️ Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: 🟢 Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 18
 
@@ -25,7 +28,7 @@ jobs:
       - name: 🚀 Export static site
         run: npm run export
 
-      - name: 📦 Upload `out/` as Artifact
+      - name: 📦 Upload `out/` as artifact
         uses: actions/upload-artifact@v4
         with:
           name: nextjs-static-site
