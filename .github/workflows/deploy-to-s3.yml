@@ -16,30 +16,24 @@ jobs:
         with:
           node-version: 18
 
+      - name: 🧹 Clear npm cache
+        run: npm cache clean --force
+
       - name: 📦 Install dependencies
         run: npm install
 
-      - name: 🔄 Update Browserslist database
-        run: npx update-browserslist-db@latest
-
-      - name: 🧹 Clean previous builds
-        run: rm -rf .next out node_modules/.cache
-
-
-
       - name: 🛠️ Build the Next.js project
-        run: |
-          echo "Building with configuration:"
-          cat next.config.js
-          npm run build
+        run: npm run build
 
-      - name: ☁️ Deploy to S3
+      - name: 🚀 Export static site
+        run: npm run export
+
+      - name: ☁️ Sync to S3
         uses: jakejarvis/s3-sync-action@v0.5.1
         with:
-          args: --acl public-read --delete
+          bucket: ${{ secrets.S3_BUCKET_NAME }}
+          region: ${{ secrets.AWS_REGION }}
+          source-dir: out
         env:
-          AWS_S3_BUCKET: ${{ secrets.S3_BUCKET_NAME }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: ${{ secrets.AWS_REGION }}
-          SOURCE_DIR: out
