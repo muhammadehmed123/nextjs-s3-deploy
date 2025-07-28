@@ -1,12 +1,9 @@
-console.log("✅ Using correct next.config.js............................................");
+// next.config.js
+console.log("✅ Using correct config");
 
-const nextConfig = {
+module.exports = {
   output: 'export',
   images: {
     unoptimized: true,
   },
 };
-
-
-
-module.exports = nextConfig;
