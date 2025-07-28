@@ -1,14 +1,14 @@
 name: Build and Export Next.js
 
 on:
-  workflow_dispatch: # Manual trigger via GitHub Actions button
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     permissions:
-      contents: read
+      contents: write # required to upload to release
 
     steps:
       - name: ⬇️ Checkout code
@@ -28,8 +28,14 @@ jobs:
       - name: 🚀 Export static site
         run: npm run export
 
-      - name: 📦 Upload exported `out/` folder as artifact
-        uses: actions/upload-artifact@v4.3.1
+      - name: 📦 Zip exported folder
+        run: zip -r nextjs-site.zip out
+
+      - name: 🚀 Upload ZIP to GitHub release
+        uses: ncipollo/release-action@v1
         with:
-          name: nextjs-static-site
-          path: out
+          tag: build-frontend
+          name: "Latest Build"
+          artifacts: "nextjs-site.zip"
+          allowUpdates: true
+          replacesArtifacts: true
