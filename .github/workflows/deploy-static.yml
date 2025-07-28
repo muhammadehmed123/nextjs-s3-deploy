@@ -1,7 +1,7 @@
 name: Build and Export Next.js
 
 on:
-  workflow_dispatch:
+  workflow_dispatch: # Manual trigger via GitHub Actions button
 
 jobs:
   build:
@@ -14,7 +14,7 @@ jobs:
       - name: ⬇️ Checkout code
         uses: actions/checkout@v4
 
-      - name: 🟢 Setup Node
+      - name: 🟢 Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
@@ -22,13 +22,13 @@ jobs:
       - name: 📦 Install dependencies
         run: npm install
 
-      - name: 🛠️ Build project
+      - name: 🛠️ Build the Next.js project
         run: npm run build
 
       - name: 🚀 Export static site
         run: npm run export
 
-      - name: 📦 Upload `out/` as artifact
+      - name: 📦 Upload exported `out/` folder as artifact
         uses: actions/upload-artifact@v4
         with:
           name: nextjs-static-site
