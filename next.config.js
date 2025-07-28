@@ -1,5 +1,3 @@
-console.log("✅ Using next.config.js");
-
 const nextConfig = {
   output: 'export',
   images: {
