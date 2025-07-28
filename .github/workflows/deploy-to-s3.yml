@@ -19,11 +19,8 @@ jobs:
       - name: 📦 Install dependencies
         run: npm install
 
-      - name: 🛠️ Build the Next.js project with ESM config
-        run: node --experimental-modules node_modules/.bin/next build
-
-      - name: 🚀 Export static site
-        run: node --experimental-modules node_modules/.bin/next export
+      - name: 🛠️ Build the static Next.js site
+        run: npm run build
 
       - name: ☁️ Sync to S3
         uses: jakejarvis/s3-sync-action@v0.5.1
