@@ -17,7 +17,10 @@ jobs:
           node-version: 18
 
       - name: 📦 Install dependencies
-        run: npm install
+        run: npm ci
+
+      - name: 🔍 Show next.config.mjs
+        run: cat next.config.mjs
 
       - name: 🛠️ Build the static Next.js site
         run: npm run build
