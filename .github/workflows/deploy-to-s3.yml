@@ -25,6 +25,8 @@ jobs:
       - name: 🧹 Clean previous builds
         run: rm -rf .next out node_modules/.cache
 
+
+
       - name: 🛠️ Build the Next.js project
         run: |
           echo "Building with configuration:"
