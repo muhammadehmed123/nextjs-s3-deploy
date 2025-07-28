@@ -1,7 +1,7 @@
 name: Build and Export Next.js
 
 on:
-  workflow_dispatch: # Manual run
+  workflow_dispatch:
 
 jobs:
   build:
@@ -26,7 +26,7 @@ jobs:
         run: npm run export
 
       - name: 📦 Upload `out/` as Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: nextjs-static-site
           path: out
