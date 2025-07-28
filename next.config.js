@@ -1,9 +1,10 @@
-/** @type {import('next').NextConfig} */
+console.log("✅ Using next.config.js");
+
 const nextConfig = {
   output: 'export',
   images: {
-    unoptimized: true
-  }
+    unoptimized: true,
+  },
 };
-//
+
 module.exports = nextConfig;
