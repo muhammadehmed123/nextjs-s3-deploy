@@ -16,21 +16,19 @@ jobs:
         with:
           node-version: 18
 
-      - name: 🧹 Clear npm cache
-        run: npm cache clean --force
-
       - name: 📦 Install dependencies
         run: npm install
 
-      - name: 🛠️ Build the Next.js project
-        run: npm run build
+      - name: 🛠️ Build the Next.js project with ESM config
+        run: node --experimental-modules node_modules/.bin/next build
 
       - name: 🚀 Export static site
-        run: npm run export
+        run: node --experimental-modules node_modules/.bin/next export
 
       - name: ☁️ Sync to S3
         uses: jakejarvis/s3-sync-action@v0.5.1
         with:
+          args: --delete
           bucket: ${{ secrets.S3_BUCKET_NAME }}
           region: ${{ secrets.AWS_REGION }}
           source-dir: out
