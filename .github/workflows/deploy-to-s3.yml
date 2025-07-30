@@ -3,7 +3,6 @@ name: Build and Deploy to S3
 on:
   workflow_dispatch:
 
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,21 +17,21 @@ jobs:
           node-version: 18
 
       - name: 📦 Install dependencies
-        run: npm ci
+        run: npm install
 
-      - name: 🔍 Show next.config.mjs
-        run: cat next.config.mjs
-
-      - name: 🛠️ Build the static Next.js site
+      - name: 🛠️ Build the Next.js project
         run: npm run build
+
+      - name: 🚀 Export static site
+        run: npx next export
 
       - name: ☁️ Sync to S3
         uses: jakejarvis/s3-sync-action@v0.5.1
         with:
-          args: --delete
-          bucket: ${{ secrets.S3_BUCKET_NAME }}
-          region: ${{ secrets.AWS_REGION }}
-          source-dir: out
+          args: --acl public-read --delete
         env:
+          AWS_S3_BUCKET: ${{ secrets.S3_BUCKET_NAME }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          SOURCE_DIR: out
