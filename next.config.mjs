@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',           // ✅ Required
+  output: 'export', // ✅ required for static export
   images: {
-    unoptimized: true,        // ✅ For S3 compatibility
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
