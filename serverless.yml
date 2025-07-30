@@ -1,8 +1,8 @@
 component: "@sls-next/serverless-component@3.7.0"
 
-name: co-ventech        # Give your app a unique name
+name: skillbuilder        # Give your app a unique name
 org: default                       # Use "default" if you're not using Serverless Dashboard
-app: co-ventech-on-lambda        # Can be any identifier for your app
+app: skillbuilder-on-lambda        # Can be any identifier for your app
 
 inputs:
   runtime:
