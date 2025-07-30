@@ -1,4 +1,4 @@
-name: Deploy to S3
+name: Build and Deploy to S3
 
 on:
   push:
@@ -8,6 +8,12 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_REGION: ${{ secrets.AWS_REGION }}
+      S3_BUCKET_NAME: ${{ secrets.S3_BUCKET_NAME }}
 
     steps:
       - name: ⬇️ Checkout code
@@ -19,21 +25,23 @@ jobs:
           node-version: 18
 
       - name: 📦 Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: 🛠️ Build project
-        run: npm run build
+      - name: ⚙️ Build the project
+        run: |
+          npm run build
+          npx next export
 
-      - name: 📁 Check out directory
+      - name: 📂 List build output
         run: ls -la ./out
 
-      - name: 🚀 Sync to S3
+      - name: 🚀 Deploy to S3
         uses: jakejarvis/s3-sync-action@v0.5.1
         with:
           args: --delete
-          source-dir: out
         env:
+          AWS_S3_BUCKET: ${{ secrets.S3_BUCKET_NAME }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
-          AWS_S3_BUCKET: ${{ secrets.S3_BUCKET_NAME }}
+          SOURCE_DIR: "./out"
